@@ -7,9 +7,9 @@ const server = http.createServer((req, res) => {
     console.log(new Date().toISOString())
 
     res.statusCode = 201;
-    res.setHeader('Content-type', 'text/plain; charset=utf-8')
+    res.setHeader('Content-type', 'application/json')
 
-    res.end("Recurso Criado");
+    res.end(JSON.stringify({ status: "ok" }));
 });
 
 http.Server.listen(PORTA, () => {
