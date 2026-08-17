@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({data: "Página nao encontrada"}))
 });
 
-    res.end(JSON.stringify({ status: "not found" }));
+    res.end(JSON.stringify({ status: "ok" }));
 
 http.Server.listen(PORTA, () => {
     console.log(`Servidor funcionando na porta ${PORTA}`);
