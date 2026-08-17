@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
     console.log(`Requisição recebida! ${req.method} ${req.url}`);
     console.log(new Date().toISOString())
 
-    res.statusCode = 201;
+    res.statusCode = 404;
     res.setHeader('Content-type', 'application/json', 'text/plain; charset= utf-8')
 
     if (req.method == "GET" && req.url == "/contato") {
@@ -21,14 +21,14 @@ const server = http.createServer((req, res) => {
     }
     
 
-    if (req.method == "GET" && req.url == "/produtos") {
+    if (req.method == "GET" && req.url == "/inexistente") {
         return res.end(JSON.stringify(produtos));
     }
 
-    res.end(JSON.stringify({data: "Página Inicial"}))
+    res.end(JSON.stringify({data: "Página nao encontrada"}))
 });
 
-    res.end(JSON.stringify({ status: "ok" }));
+    res.end(JSON.stringify({ status: "not found" }));
 
 http.Server.listen(PORTA, () => {
     console.log(`Servidor funcionando na porta ${PORTA}`);
